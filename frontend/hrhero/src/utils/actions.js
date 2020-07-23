@@ -3,3 +3,5 @@ export const REMOVE_EMPLOYEE = "REMOVE_EMPLOYEE";
 export const SET_CURRENT_EMPLOYEE = "SET_CURRENT_EMPLOYEE";
 export const ADD_EMPLOYEE = "ADD_EMPLOYEE";
 export const LOADING = "LOADING";
+export const ADD_SKILL = "ADD_SKILL"
+export const REMOVE_SKILL = "REMOVE_SKILL"

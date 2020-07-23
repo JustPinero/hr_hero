@@ -1,10 +1,10 @@
 import React from 'react';
-
+import "./index.css"
 import Image from "react-bootstrap/Image";
 
-const Portrait = ({props})=>{
+const Portrait = (props)=>{
     return(
-        <Image src={props.portrait}/>
+        <Image id="portrait-img" fluid src={props.portrait}/>
     )
 }
 export default Portrait

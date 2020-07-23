@@ -3,9 +3,10 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Nav from "./components/Nav";
 
-import Home from "./pages/Home";
-import NewHero from "./pages/NewHero";
-import NoMatch from "./pages/NoMatch";
+import HomePage from "./pages/Home";
+import ProfilePage from "./pages/Profile"
+import NewHeroPage from "./pages/NewHero";
+import NoMatchPage from "./pages/NoMatch";
 
 
 const Routes = ()=> {
@@ -14,10 +15,10 @@ const Routes = ()=> {
       <div>
         <Nav />
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/employees/:id"/>
-          <Route exact path="/newemployee" component={NewHero} />
-          <Route component={NoMatch} />
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/employees/:id" component={ProfilePage}/>
+          <Route exact path="/newemployee" component={NewHeroPage} />
+          <Route component={NoMatchPage} />
         </Switch>
       </div>
     </Router>

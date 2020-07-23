@@ -26,7 +26,7 @@ module.exports = function(sequelize, DataTypes) {
                 return this.getDataValue('skills').split(',')
             },
             set(val) {
-                console.log(typeof val)
+                console.log(val)
                 
             this.setDataValue('skills',JSON.parse(val).join(','));
             },

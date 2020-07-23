@@ -1,0 +1,11 @@
+#skills-container {
+    width: 30rem;
+}
+#skill-block {
+display: flex;
+justify-content: center;
+align-items: center;
+}
+#skill-block__text {
+
+}

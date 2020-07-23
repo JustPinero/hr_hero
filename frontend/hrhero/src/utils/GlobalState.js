@@ -4,7 +4,9 @@ import {
     REMOVE_EMPLOYEE,
     SET_CURRENT_EMPLOYEE,
     ADD_EMPLOYEE,
-    LOADING 
+    LOADING,
+    ADD_SKILL,
+    REMOVE_SKILL
 } from "./actions";
 
 
@@ -46,7 +48,18 @@ const reducer = (state, action) => {
         ...state,
         loading: true
       };
-  
+    case ADD_SKILL:
+      return {
+        ...state,
+        formSkills:[action.skill, ...state.formSkills]
+      }
+    case REMOVE_SKILL:
+      return{
+        ...state,
+        formSkills: state.formSkills.filter((skill)=>{
+          return skill !== action.skill
+        })
+      }
     default:
       return state;
     }
@@ -64,7 +77,8 @@ const StoreProvider = ({value=[], ...props})=>{
             portrait:"",
             skills:[]
         },
-        loading:false
+        loading:false,
+        formSkills:[]
     });
     return <Provider value={[state, dispatch]} {...props} />;
 };

@@ -1,0 +1,26 @@
+#profile-container{
+    background-color:white;
+    padding: 1rem;
+    border-radius: 15px;
+    height: 40rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#info-container {
+    background-color:white;
+
+}
+
+#title-banner {
+    background-color: #bd2130;
+    border-radius: 15px 0px 50px 0px;
+
+}
+
+#title-banner__text {
+    text-align: center;
+    margin-top: 1rem;
+    border-radius: 15px;
+    color: white;
+    font-family: fantasy;
+
+}

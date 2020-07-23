@@ -10,8 +10,8 @@ const EmployeeTile = (props)=>{
     return(
         <div key={props.id}>
             <Link to={`/employees/${props.id}`} activeClassName="active">
-                <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={props.portrait} />
+                <Card style={{ width: '18rem', height:"20rem" }}>
+                    <Card.Img style={{height:"15rem"}}variant="top" fluid src={props.portrait} />
                     <Card.Body>
                         <Card.Title>{props.title}</Card.Title>
                     </Card.Body>
