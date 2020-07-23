@@ -1,6 +1,7 @@
 #profile-container{
     background-color:white;
     padding: 1rem;
+    margin-top:5rem;
     border-radius: 15px;
     height: 40rem;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -22,5 +23,21 @@
     border-radius: 15px;
     color: white;
     font-family: fantasy;
+
+}
+#profile-button__box{
+    padding-top: 1rem;
+}
+.profile-button{
+    height: 10rem;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 10px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+#update-button {
+
+}
+#terminate-button{
 
 }

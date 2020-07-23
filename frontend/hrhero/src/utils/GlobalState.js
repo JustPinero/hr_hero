@@ -1,12 +1,17 @@
 import React, { createContext, useReducer, useContext } from "react";
 import { 
-    UPDATE_EMPLOYEES,
+    UPDATE_CURRENT_EMPLOYEES,
+    UPDATE_CURRENT_EMPLOYEE,
     REMOVE_EMPLOYEE,
     SET_CURRENT_EMPLOYEE,
     ADD_EMPLOYEE,
     LOADING,
     ADD_SKILL,
-    REMOVE_SKILL
+    REMOVE_SKILL,
+    SHOW_FILTER,
+    HIDE_FILTER,
+    ADD_FILTER,
+    REMOVE_FILTER
 } from "./actions";
 
 
@@ -21,14 +26,22 @@ const reducer = (state, action) => {
         currentEmployee: action.employee,
         loading: false
       };
-  
-    case UPDATE_EMPLOYEES:
+      
+    case UPDATE_CURRENT_EMPLOYEES:
       return {
         ...state,
         employees: [...action.employees],
         loading: false
       };
-  
+    case UPDATE_CURRENT_EMPLOYEE:
+      return {
+        ...state,
+        employees: [action.employee, ...state.employees.filter((employee) => {
+          return employee.id !== action.employee.id; 
+        })
+      ]
+      };
+      
     case ADD_EMPLOYEE:
       return {
         ...state,
@@ -40,7 +53,7 @@ const reducer = (state, action) => {
       return {
         ...state,
         employees: state.employees.filter((employee) => {
-          return employee._id !== action._id; 
+          return employee.id !== action.id; 
         })
       };
     case LOADING:
@@ -60,6 +73,28 @@ const reducer = (state, action) => {
           return skill !== action.skill
         })
       }
+    case SHOW_FILTER:
+      return{
+      ...state,
+      showFilter:true
+    }
+    case HIDE_FILTER:
+      return{
+        ...state,
+        showFilter:false
+      }
+    case ADD_FILTER:
+      return{
+        ...state,
+        filters: [action.filter, ...state.filters]
+      }
+    case REMOVE_FILTER:
+        return{
+          ...state,
+          filters: state.filters.filter((filter)=>{
+            return filter !== action.filter
+          })
+        }
     default:
       return state;
     }
@@ -78,7 +113,9 @@ const StoreProvider = ({value=[], ...props})=>{
             skills:[]
         },
         loading:false,
-        formSkills:[]
+        formSkills:[],
+        showFilter:false,
+        filters:[]
     });
     return <Provider value={[state, dispatch]} {...props} />;
 };

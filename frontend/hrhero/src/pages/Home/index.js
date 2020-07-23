@@ -5,13 +5,16 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
+import EmployeeFilter from "../../components/Filter";
 import Deck from "../../components/Deck";
 
 const Home = () => {
+    
     return(
         <Container id="homepage-container" fluid>
             <Row>
                 <Col>
+                    <EmployeeFilter/>
                     <Deck/>
                 </Col>
             </Row>

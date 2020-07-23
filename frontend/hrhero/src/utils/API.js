@@ -9,6 +9,9 @@ export default {
   getEmployee: function(id) {
     return axios.get("/api/employees/" + id);
   },
+  updateEmployee: function(employeeData){
+    return axios.put("/api/employees"+employeeData.id, employeeData)
+  },
   // Deletes the employee with the given id
   deleteEmployee: function(id) {
     return axios.delete("/api/employees/" + id);

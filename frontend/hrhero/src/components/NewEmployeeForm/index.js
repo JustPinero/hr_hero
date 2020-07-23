@@ -1,18 +1,20 @@
 import React, { useRef } from "react";
 import "./index.css"
+//Actions and Context
 import { useStoreContext } from "../../utils/GlobalState";
 import { ADD_EMPLOYEE, LOADING,ADD_SKILL,REMOVE_SKILL } from "../../utils/actions";
 import API from "../../utils/API";
+//Util
 import PowersList from "./PowersList";
+//Assets
 import QuestionMark from "../../assets/img/questionMark.png"
-
+//Bootstrap Components
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Image from 'react-bootstrap/Image'
 
 const NewEmployeeForm= ()=>{
-    //HOOKS
     //Form References
     const titleRef = useRef();
     const firstNameRef = useRef();
