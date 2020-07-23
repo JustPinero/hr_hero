@@ -1,6 +1,6 @@
 import React, { createContext, useReducer, useContext } from "react";
 import { 
-    UPDATE_EMPLOYEE,
+    UPDATE_EMPLOYEES,
     REMOVE_EMPLOYEE,
     SET_CURRENT_EMPLOYEE,
     ADD_EMPLOYEE,
@@ -20,7 +20,7 @@ const reducer = (state, action) => {
         loading: false
       };
   
-    case UPDATE_EMPLOYEE:
+    case UPDATE_EMPLOYEES:
       return {
         ...state,
         employees: [...action.employees],
