@@ -7,7 +7,7 @@ function App() {
   return (
     <div>
       <StoreProvider>
-
+        <Routes/>
       </StoreProvider>
     </div>
   );

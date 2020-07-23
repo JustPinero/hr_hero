@@ -4,4 +4,5 @@ const NewHero = ()=>{
     return (
         <div>NEW HERO</div>
     )
-}
+};
+export default NewHero;
