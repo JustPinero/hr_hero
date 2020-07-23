@@ -1,10 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
+import { StoreProvider } from "./utils/GlobalState";
 import './App.css';
+import Routes from "./Routes";
 
 function App() {
   return (
-    <div className="App">
+    <div>
+      <StoreProvider>
+
+      </StoreProvider>
     </div>
   );
 }
