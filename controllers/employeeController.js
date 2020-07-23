@@ -1,10 +1,14 @@
 const { Employee } = require('../models');
-
+console.log('employees get all working', Employee)
 const getAllEmployees = async (req, res) => {
+    
+    console.log('employees get all working')
     try {
-        const employees = await Employee.findAll({});
+        const employees = await Employee.findAll();
+        console.log("success")
         return res.status(200).json({ employees });
     } catch (error) {
+        console.log("failure")
         return res.status(500).send(error.message);
     }
 }

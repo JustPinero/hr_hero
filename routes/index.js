@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const employeeRoutes = require("./employee");
 
-router.use('/employee', employeeRoutes);
-router.get('/', (req, res) => res.send('This is root!'));
+router.use('/api', employeeRoutes);
+router.get('/', (req, res) => res.send('I AM ROOT'));
 
 module.exports = router
