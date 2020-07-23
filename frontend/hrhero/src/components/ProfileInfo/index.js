@@ -8,13 +8,15 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import Image from "react-bootstrap/Image";
 //Custom Components
 import SkillList from "../SkillList";
 import Portrait from '../Portrait';
 //Actions
 import { useStoreContext } from "../../utils/GlobalState";
-import {REMOVE_EMPLOYEE, UPDATE_CURRENT_EMPLOYEE} from "../../utils/actions"
+import {REMOVE_EMPLOYEE, UPDATE_EMPLOYEE, UPDATING_EMPLOYEE} from "../../utils/actions"
 import API from "../../utils/API";
+import PowersList from '../NewEmployeeForm/PowersList';
 
 
 const ProfileInfo = (props)=>{
@@ -23,22 +25,38 @@ const ProfileInfo = (props)=>{
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    console.log("PROPS", props)
+
+
+    const handleUpdates= e => {
+        console.log("UPDATES HERE:", e.target.name)
+        console.log("IS IT A CHECKBOX??", e.target.name == 'skills')
+        if(e.target.name == 'skills'){
+            if(e.target.checked){
+                console.log("CHECKED", state.currentEmployee)
+                dispatch({ type: UPDATING_EMPLOYEE, update:{skills: [e.target.id, state.currentEmployee.skills]}})
+            }else{
+                dispatch({ type: UPDATING_EMPLOYEE, update:{skills: [...state.currentEmployee.skills.filter(skill=>e.target.id!==skill)]}})
+            }
+            console.log("CURRENT EMPLOYEE", state.currentEmployee)
+        }
+        let field = e.target.name;
+        dispatch({ type: UPDATING_EMPLOYEE, update:{[field]:e.target.value}})
+    }
     const updateEmployee= ()=>{
         API.updateEmployee(state.currentEmployee)
             .then((res) => {
                 dispatch({
-                    type:UPDATE_CURRENT_EMPLOYEE,
+                    type:UPDATE_EMPLOYEE,
                     employee: res.data
                 })
             });
     }
-    const removeEmployee = id => {
-        API.deleteEmployee(id)
+    const removeEmployee = ()=> {
+        API.deleteEmployee(props.id)
             .then(()=> {
                 dispatch({
                     type: REMOVE_EMPLOYEE,
-                    id: id
+                    id: props.id
                 });
             })
             .catch(err=>console.log(err));
@@ -75,7 +93,7 @@ const ProfileInfo = (props)=>{
                     
                     </Form>
                   <Row>
-                  <SkillList skills={props.skills}/>
+                  {state.currentEmployee.skills ? <SkillList skills={state.currentEmployee.skills}/> : <div/>}
                </Row>
                 </Col>
             </Row>
@@ -86,7 +104,7 @@ const ProfileInfo = (props)=>{
                     </Button>
                 </Col>
                 <Col>
-                    <Button onClick={removeEmployee(props.id)} className="profile-button" id="terminate-button" variant="danger" size="lg" block>
+                    <Button onClick={removeEmployee} className="profile-button" id="terminate-button" variant="danger" size="lg" block>
                         REMOVE
                     </Button>
                 </Col>
@@ -101,27 +119,27 @@ const ProfileInfo = (props)=>{
               <Modal.Title>Modal title</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-            <Form id="form-container" onSubmit={handleUpdate}>
+            <Form id="form-container" onSubmit={updateEmployee}>
             <Form.Row>
                 <Col md={3}>
-                    <Image id="form-image" fluid style={{backgroundColor:"black"}} src={QuestionMark}/>
-                    <Form.Control valueplaceholder="Portrait URL" />
+                    <Image id="form-image" fluid style={{backgroundColor:"black"}} src={state.currentEmployee.portrait}/>
+                    <Form.Control onChange={handleUpdates} name="portrait" value={state.currentEmployee.portrait} />
                 </Col>
                 <Col>
                 <Form.Row>
                     <Col>
-                        <Form.Control ref={titleRef} placeholder="Title" />
+                        <Form.Control onChange={handleUpdates} name="title" value={state.currentEmployee.title} placeholder="Title" />
                     </Col>
                     <Col>
-                        <Form.Control ref={firstNameRef} placeholder="First name" />
+                        <Form.Control onChange={handleUpdates} name="firstName" value={state.currentEmployee.firstName} placeholder="First name" />
                     </Col>
                 </Form.Row>
                 <Form.Row>
                 <Col>
-                    <Form.Control ref={emailRef} placeholder="Email" />
+                    <Form.Control onChange={handleUpdates} name="email" value={state.currentEmployee.email} placeholder="Email" />
                     </Col>
                     <Col>
-                    <Form.Control ref={lastNameRef} placeholder="Last name" />
+                    <Form.Control onChange={handleUpdates} name="lastName" value={state.currentEmployee.lastName} placeholder="Last name" />
                 </Col>
                 
                 </Form.Row>
@@ -129,12 +147,11 @@ const ProfileInfo = (props)=>{
                 {PowersList.map((power) => (
                     <Col xs={4} key={power}>
                     <Form.Check 
-                        onChange={handleSkillChange}
+                        onChange={handleUpdates}
                         type={"checkbox"}
                         id={power}
                         label={power}
-                        ref={skillsRef}
-                        name={power}
+                        name="skills"
                         checked={state.currentEmployee.skills.includes(power)}  
                     />
                     

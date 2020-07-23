@@ -1,7 +1,8 @@
 import React, { createContext, useReducer, useContext } from "react";
 import { 
-    UPDATE_CURRENT_EMPLOYEES,
-    UPDATE_CURRENT_EMPLOYEE,
+    UPDATE_EMPLOYEES,
+    UPDATING_EMPLOYEE,
+    UPDATE_EMPLOYEE,
     REMOVE_EMPLOYEE,
     SET_CURRENT_EMPLOYEE,
     ADD_EMPLOYEE,
@@ -26,14 +27,19 @@ const reducer = (state, action) => {
         currentEmployee: action.employee,
         loading: false
       };
-      
-    case UPDATE_CURRENT_EMPLOYEES:
+    case UPDATING_EMPLOYEE:
+      console.log("IN GLOBALE STORE ACTION AND STATE",action, state)
+      return{
+        ...state,
+        currentEmployee:{ ...state.currentEmployee, ...action.update}
+      }
+    case UPDATE_EMPLOYEES:
       return {
         ...state,
         employees: [...action.employees],
         loading: false
       };
-    case UPDATE_CURRENT_EMPLOYEE:
+    case UPDATE_EMPLOYEE:
       return {
         ...state,
         employees: [action.employee, ...state.employees.filter((employee) => {

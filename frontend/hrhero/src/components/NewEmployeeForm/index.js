@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { useHistory } from "react-router-dom";
 import "./index.css"
 //Actions and Context
 import { useStoreContext } from "../../utils/GlobalState";
@@ -24,6 +25,7 @@ const NewEmployeeForm= ()=>{
     const skillsRef = useRef();
     //state
     const [state, dispatch] = useStoreContext();
+    const history = useHistory();
     const handleSkillChange = e => {
         console.log("CHECKBOX NAME:", e.target.name, e.target.checked)
        
@@ -51,6 +53,7 @@ const NewEmployeeForm= ()=>{
                 type:ADD_EMPLOYEE,
                 employee:result.data
             });
+            history.push("/")
         })
         .catch(err=>console.log(err));
             titleRef.current.value = "";

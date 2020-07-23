@@ -13,7 +13,6 @@ import { useStoreContext } from "../../utils/GlobalState";
 
 
 const NavBar = ()=>{
-    const [store]= useStoreContext();
     return(
         <Navbar fixed="top" className="justify-content-center" bg="light" expand="lg">
             <Navbar.Brand>HR HERO</Navbar.Brand>
@@ -26,10 +25,6 @@ const NavBar = ()=>{
                 <Nav  >
                 <Link to={`/newemployee`}>Add Staff</Link>
                 </Nav>
-                <Form inline>
-                    <FormControl type="text" placeholder="Search"  />
-                    <Button variant="outline-success">Search</Button>
-                </Form>
             </Navbar.Collapse>
           
         </Navbar>

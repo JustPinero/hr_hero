@@ -7,6 +7,7 @@ import HomePage from "./pages/Home";
 import ProfilePage from "./pages/Profile"
 import NewHeroPage from "./pages/NewHero";
 import NoMatchPage from "./pages/NoMatch";
+import WelcomePage from "./pages/Welcome"
 
 
 const Routes = ()=> {
@@ -18,6 +19,7 @@ const Routes = ()=> {
           <Route exact path="/" component={HomePage} />
           <Route exact path="/employees/:id" component={ProfilePage}/>
           <Route exact path="/newemployee" component={NewHeroPage} />
+          <Route exact path="/welcome" component={WelcomePage} />
           <Route component={NoMatchPage} />
         </Switch>
       </div>

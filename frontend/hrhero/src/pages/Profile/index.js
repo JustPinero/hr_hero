@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import "./index.css";
-import {useParams} from "react-router-dom";
+import {useParams, Redirect} from "react-router-dom";
 //Bootstrap Components
 import Container from "react-bootstrap/Container";
 import Row from 'react-bootstrap/Row'
@@ -24,6 +24,7 @@ const Profile = () => {
         <Container id="profilepage-container">
         {state.currentEmployee ?
             <ProfileInfo
+            id={id}
             title={state.currentEmployee.title}
             firstName={state.currentEmployee.firstName}
             lastName={state.currentEmployee.lastName}
