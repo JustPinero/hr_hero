@@ -10,7 +10,7 @@ export default {
     return axios.get("/api/employees/" + id);
   },
   // Deletes the employee with the given id
-  deletePost: function(id) {
+  deleteEmployee: function(id) {
     return axios.delete("/api/employees/" + id);
   },
   // Adds employee to the database
