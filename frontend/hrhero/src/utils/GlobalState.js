@@ -51,3 +51,26 @@ const reducer = (state, action) => {
       return state;
     }
 };
+
+const StoreProvider = ({value=[], ...props})=>{
+    const [state, dispatch] = useReducer(reducer, {
+        employees:[],
+        currentEmployee:{
+            _id:0,
+            title:"",
+            firstName:"",
+            lastName:"",
+            email:"",
+            portrait:"",
+            skills:[]
+        },
+        loading:false
+    });
+    return <Provider value={[state, dispatch]} {...props} />;
+};
+
+const useStoreContext = ()=> {
+    return useContext(StoreContext);
+}
+
+export {StoreProvider, useStoreContext};
