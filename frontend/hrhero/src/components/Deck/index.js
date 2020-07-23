@@ -19,7 +19,7 @@ const getEmployees = ()=> {
         .then(results => {
             dispatch({
                 type: UPDATE_EMPLOYEES,
-                employees: results.data
+                employees: results.data.employees
             });
         })
         .catch(err=> console.log(err));

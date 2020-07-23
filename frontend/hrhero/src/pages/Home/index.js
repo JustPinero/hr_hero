@@ -1,8 +1,20 @@
 import React from 'react';
 
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+
+import Deck from "../../components/Deck";
+
 const Home = () => {
     return(
-        <div>HOME</div>
+        <Container fluid>
+            <Row>
+                <Col>
+                    <Deck/>
+                </Col>
+            </Row>
+        </Container>
     )
 }
 

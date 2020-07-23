@@ -15,6 +15,7 @@ const Routes = ()=> {
         <Nav />
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route exact path="/employees/:id"/>
           <Route exact path="/newemployee" component={NewHero} />
           <Route component={NoMatch} />
         </Switch>
