@@ -1,5 +1,6 @@
 import React from 'react';
-
+import "./index.css";
+import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -8,7 +9,7 @@ import Deck from "../../components/Deck";
 
 const Home = () => {
     return(
-        <Container fluid>
+        <Container id="homepage-container" fluid>
             <Row>
                 <Col>
                     <Deck/>
