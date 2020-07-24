@@ -1,13 +1,18 @@
+//React
 import React from 'react';
+//CSS
 import "./index.css"
+//Navigation Components
 import {Link} from "react-router-dom"
+//Bootstrap Components
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import SearchBar from '../SearchBar'
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
+//Custom Components
 import Filter from "../Filter"
+import SearchBar from '../SearchBar'
 
 
 

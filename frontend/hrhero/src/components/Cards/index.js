@@ -1,4 +1,6 @@
+// React
 import React from 'react';
+//Navigation Components
 import {Link} from "react-router-dom";
 //Bootstrap Components
 import Card from 'react-bootstrap/Card';

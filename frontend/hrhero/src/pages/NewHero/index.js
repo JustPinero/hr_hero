@@ -1,12 +1,15 @@
+//REACT
 import React from 'react';
-
+//BOOTSTRAP
 import Container from "react-bootstrap/Container";
-import NewEmployeeFrom from "../../components/NewEmployeeForm";
 
+import NewEmployeeForm from "../../components/NewEmployeeForm";
+
+//EMPLOYEE SIGNUP FORM
 const NewHero = ()=>{
     return (
         <Container style={{marginTop:"10rem"}}>
-            <NewEmployeeFrom/>
+            <NewEmployeeForm/>
         </Container>
     )
 };
