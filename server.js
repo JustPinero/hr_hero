@@ -12,7 +12,7 @@ app.use(express.static(PATH.join(__dirname, "frontend", "hrhero", "build")))
 app.use(routes);
 
 app.get('*', (req,res) =>{
-    res.sendFile(PATH.join(__dirname, "frontend", "hrhero", "build"));
+    res.sendFile(PATH.join(__dirname, "frontend", "hrhero", "build", "index.html"));
 });
 
 // Start the API server
