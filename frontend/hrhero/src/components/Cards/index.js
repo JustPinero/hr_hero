@@ -12,7 +12,7 @@ const EmployeeTile = (props)=>{
                 <Card style={{ width: '18rem', height:"20rem" }}>
                     <Card.Img style={{height:"15rem"}}variant="top" src={props.portrait} />
                     <Card.Body>
-                        <Card.Title>{props.title}</Card.Title>
+                        <Card.Title style={{textAlign:"center", fontSize:"3rem", color:"royalblue"}}>{props.title}</Card.Title>
                     </Card.Body>
                 </Card>
             </Link>

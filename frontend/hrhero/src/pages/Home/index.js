@@ -12,12 +12,7 @@ const Home = () => {
     
     return(
         <Container id="homepage-container" fluid>
-            <Row>
-                <Col>
-                    <EmployeeFilter/>
-                    <Deck/>
-                </Col>
-            </Row>
+            <Deck/>
         </Container>
     )
 }

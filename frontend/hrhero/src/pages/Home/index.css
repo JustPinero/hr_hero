@@ -1,10 +1,10 @@
 #homepage-container {
     background-image: url("../../assets/img/city_bg.jpg");
     height: 100vh;
-    padding-top: 2rem;
+    padding-top: 20rem;
     display: flex;
     justify-content: center;
-    align-content: center;
+    align-items:flex-start;
     background-repeat: no-repeat;
     background-size: cover;;
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import "./index.css"
 import {Link} from "react-router-dom"
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
@@ -15,9 +16,8 @@ import { useStoreContext } from "../../utils/GlobalState";
 
 const NavBar = ()=>{
     return(
-        <Navbar fixed="top" className="justify-content-center" bg="light" expand="lg">
-            <Navbar.Brand>HR HERO</Navbar.Brand>
-            <Filter/>
+        <Navbar fixed="top" id="nav-container" className="justify-content-center" bg="light" expand="lg">
+            <Link to={"/"} ><Navbar.Brand>HR HERO</Navbar.Brand></Link>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav >
@@ -27,6 +27,7 @@ const NavBar = ()=>{
                 <Link to={`/newemployee`}>Add Staff</Link>
                 </Nav>
             </Navbar.Collapse>
+            <Filter/>
           <SearchBar/>
         </Navbar>
     )
