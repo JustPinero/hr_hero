@@ -25,21 +25,25 @@ nodemon and Postman were used for development.
 
 ###To Begin the application:
 1. Make sure Mysql is installed https://www.npmjs.com/package/mysql2
-2. from the root directory enter: `npm i`
-3. activate the server and database
+
+2. Create a .env file in the root directory and inside place the following environmental variable with your information: DATABASE_URL=mysql://username@localhost:5432/database_name
+
+3. from the root directory enter: `npm i`
+
+4. activate the server and database
 `npm start`
-4. in a seperate tab proceed to the frontend directory and spin of the frontend
+5. in a seperate tab proceed to the frontend directory and spin of the frontend
 `cd frontend/hrhero/`
 `npm i` || `yarn`
 `npm start` || `yarn start`
-5. At this point your browser should open with the app in front of you.
-6. The add stuff button on the navbar allows you to add superheroes to the database with ease.
-7.  Once populated the primary display can be filtered with use of the check boxes in the filter or you can search for individual heroes using the search bar.
-8. Each tile with take you to an individual superhero's profile page where you can update their information or remove them if you so please.
-9. On mobile both the dropdown filter and search bar are easily accessible.
+6. At this point your browser should open with the app in front of you.
+7. The add stuff button on the navbar allows you to add superheroes to the database with ease.
+8.  Once populated the primary display can be filtered with use of the check boxes in the filter or you can search for individual heroes using the search bar.
+9. Each tile with take you to an individual superhero's profile page where you can update their information or remove them if you so please.
+10. On mobile both the dropdown filter and search bar are easily accessible.
 ###Features Under Construction
 - tighten the interface eg. more user friendly redirects after finishing various 
-- various styling eg. nav bar headers, buttons, and page backgrounds
+- various styling eg. nav bar headers, buttons, and page backgrounds.
 - locked scrolling using react-scroll and scroll-magic
 - icon animation using Pose
 
