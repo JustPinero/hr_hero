@@ -39,7 +39,7 @@ const reducer = (state, action) => {
       };
     case UPDATING_EMPLOYEE:
       console.log("IN GLOBALE STORE ACTION AND STATE",action, state)
-      debugger
+      
       return{
         ...state,
         currentEmployee:{ ...state.currentEmployee, ...action.update}
@@ -55,13 +55,13 @@ const reducer = (state, action) => {
         let filteredEmployees = totalEmployees.filter(employee=>{
           for(let i=0; i<filters.length; i++){
             if(!employee.skills.includes(filters[i])){
-              debugger
+              
               return false;
             }
           }
           return true;
         })
-        debugger
+        
       return{
         ...state,
         employees: filteredEmployees
@@ -142,9 +142,6 @@ const reducer = (state, action) => {
             for(let i=0; i<action.search.length;i++){
               let search = (action.search[i]).toLowerCase();
               let data = (employee[state.category][i]).toLowerCase();
-              console.log("SEARCH", search)
-              console.log("DATA", data)
-              console.log("is this working", search!== data)
               if(search!== data){
                 return false;
               }

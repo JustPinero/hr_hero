@@ -1,8 +1,6 @@
 const { Employee } = require('../models');
 console.log('employees get all working', Employee)
 const getAllEmployees = async (req, res) => {
-    
-    console.log('employees get all working')
     try {
         const employees = await Employee.findAll();
         console.log("success")

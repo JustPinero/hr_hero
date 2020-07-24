@@ -14,7 +14,7 @@ const Routes = ()=> {
   return (
     <Router>
       <div>
-        <Nav />
+      <Route exact path="/" component={Nav}/>
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/employees/:id" component={ProfilePage}/>
