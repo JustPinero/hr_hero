@@ -12,6 +12,7 @@ import Image from "react-bootstrap/Image";
 //Custom Components
 import SkillList from "../SkillList";
 import Portrait from '../Portrait';
+import NavButton from '../../components/utils/NavButton'
 //Actions
 import { useStoreContext } from "../../utils/GlobalState";
 import {REMOVE_EMPLOYEE, UPDATE_EMPLOYEE, UPDATING_EMPLOYEE} from "../../utils/actions"
@@ -62,6 +63,7 @@ const ProfileInfo = (props)=>{
         };
     return (
         <Container id="profile-container" fluid>
+            <NavButton buttonText="BACK" buttonStyle="back-button" navPath="/"/>
             <Row>
             <Col md={5}>
                 <Portrait portrait={props.portrait}/>

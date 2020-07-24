@@ -2,10 +2,9 @@ import React from 'react';
 import PowersList from "../NewEmployeeForm/PowersList";
 import { useStoreContext } from "../../utils/GlobalState";
 import {ADD_FILTER, REMOVE_FILTER, FILTER_EMPLOYEES} from "../../utils/actions";
-import API from "../../utils/API";
 
 
-
+//Bootstrap Components
 import Accordion from "react-bootstrap/Accordion";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";

@@ -1,5 +1,7 @@
 // React
 import React from 'react';
+//CSS
+import "./index.css";
 //Navigation Components
 import {Link} from "react-router-dom";
 //Bootstrap Components
@@ -10,8 +12,8 @@ import Card from 'react-bootstrap/Card';
 const EmployeeTile = (props)=>{
     return(
         <div key={props.id}>
-            <Link to={`/employees/${props.id}`}>
-                <Card style={{ width: '18rem', height:"20rem" }}>
+            <Link id='card-link' to={`/employees/${props.id}`}>
+                <Card className="mb-3" id='card-container'>
                     <Card.Img style={{height:"15rem"}}variant="top" src={props.portrait} />
                     <Card.Body>
                         <Card.Title style={{textAlign:"center", fontSize:"3rem", color:"royalblue"}}>{props.title}</Card.Title>

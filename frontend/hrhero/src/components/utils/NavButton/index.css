@@ -1,0 +1,10 @@
+#back-button{
+    color: white;
+    font-weight: 900;
+    background-color: red;
+    margin-bottom:10px
+};
+
+#home-button{
+    color:blue;
+}

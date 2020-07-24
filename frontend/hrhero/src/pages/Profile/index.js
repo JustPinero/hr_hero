@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
 import "./index.css";
-import {useParams, Redirect} from "react-router-dom";
+import {useParams} from "react-router-dom";
 //Bootstrap Components
 import Container from "react-bootstrap/Container";
 import Row from 'react-bootstrap/Row'
-import Spinner from 'react-bootstrap/Spinner'
-import Button from 'react-bootstrap/Button'
+import Spinner from 'react-bootstrap/Spinner';
 import API from "../../utils/API";
+//Custom Components
+import NavButton from '../../components/utils/NavButton';
 import { useStoreContext } from "../../utils/GlobalState";
 import { SET_CURRENT_EMPLOYEE} from "../../utils/actions";
 

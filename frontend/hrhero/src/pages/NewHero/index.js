@@ -12,7 +12,7 @@ const NewHero = ()=>{
     return (
         <Container style={{marginTop:"10rem"}}>
             <Row>
-                <NavButton/>
+                <NavButton buttonText="BACK" navPath="/" buttonStyle="back-button"/>
             </Row>
             <NewEmployeeForm/>
         </Container>
