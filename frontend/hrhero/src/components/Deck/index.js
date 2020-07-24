@@ -5,7 +5,7 @@ import CardDeck from 'react-bootstrap/CardDeck';
 import EmployeeCard from "../Cards";
 import Spinner from "react-bootstrap/Spinner"
 import { useStoreContext } from "../../utils/GlobalState";
-import {LOADING, UPDATE_EMPLOYEES } from "../../utils/actions";
+import {LOADING, GET_ALL_EMPLOYEES } from "../../utils/actions";
 import API from "../../utils/API";
 
 
@@ -18,17 +18,15 @@ const getEmployees = ()=> {
     API.getEmployees()
         .then(results => {
             dispatch({
-                type: UPDATE_EMPLOYEES,
+                type: GET_ALL_EMPLOYEES,
                 employees: results.data.employees
             });
         })
         .catch(err=> console.log(err));
 };
-
     useEffect(()=>{
         getEmployees();
     }, []);
-
 return (
     <CardDeck>
         {state.employees ? 

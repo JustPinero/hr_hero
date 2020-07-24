@@ -1,5 +1,6 @@
 import React, { createContext, useReducer, useContext } from "react";
 import { 
+    GET_ALL_EMPLOYEES,
     UPDATE_EMPLOYEES,
     UPDATING_EMPLOYEE,
     UPDATE_EMPLOYEE,
@@ -9,10 +10,13 @@ import {
     LOADING,
     ADD_SKILL,
     REMOVE_SKILL,
+    FILTER_EMPLOYEES,
     SHOW_FILTER,
     HIDE_FILTER,
     ADD_FILTER,
-    REMOVE_FILTER
+    REMOVE_FILTER,
+    SEARCH_EMPLOYEES,
+    SELECT_SEARCH_CATERGORY
 } from "./actions";
 
 
@@ -21,6 +25,12 @@ const { Provider } = StoreContext;
 
 const reducer = (state, action) => {
     switch (action.type) {
+    case GET_ALL_EMPLOYEES:
+      return {
+        ...state,
+        employees: action.employees,
+        totalEmployees: action.employees
+      }
     case SET_CURRENT_EMPLOYEE:
       return {
         ...state,
@@ -29,6 +39,7 @@ const reducer = (state, action) => {
       };
     case UPDATING_EMPLOYEE:
       console.log("IN GLOBALE STORE ACTION AND STATE",action, state)
+      debugger
       return{
         ...state,
         currentEmployee:{ ...state.currentEmployee, ...action.update}
@@ -39,6 +50,22 @@ const reducer = (state, action) => {
         employees: [...action.employees],
         loading: false
       };
+    case FILTER_EMPLOYEES:
+        const {totalEmployees, filters} = state;
+        let filteredEmployees = totalEmployees.filter(employee=>{
+          for(let i=0; i<filters.length; i++){
+            if(!employee.skills.includes(filters[i])){
+              debugger
+              return false;
+            }
+          }
+          return true;
+        })
+        debugger
+      return{
+        ...state,
+        employees: filteredEmployees
+      }
     case UPDATE_EMPLOYEE:
       return {
         ...state,
@@ -92,13 +119,37 @@ const reducer = (state, action) => {
     case ADD_FILTER:
       return{
         ...state,
-        filters: [action.filter, ...state.filters]
+        filters: [action.filter, ...state.filters],
+        employees:[...state.employees.filter(employee=>employee.skills.includes(action.filter))]
       }
     case REMOVE_FILTER:
+       let newFilter = state.filters.filter((filter)=>{
+        return filter !== action.filter
+      })
         return{
           ...state,
-          filters: state.filters.filter((filter)=>{
-            return filter !== action.filter
+          filters: [...newFilter]
+        }
+    case SELECT_SEARCH_CATERGORY:
+      return{
+        ...state,
+        category:action.category
+      }
+    case SEARCH_EMPLOYEES:
+        return {
+          ...state,
+          employees: state.totalEmployees.filter(employee=>{
+            for(let i=0; i<action.search.length;i++){
+              let search = (action.search[i]).toLowerCase();
+              let data = (employee[state.category][i]).toLowerCase();
+              console.log("SEARCH", search)
+              console.log("DATA", data)
+              console.log("is this working", search!== data)
+              if(search!== data){
+                return false;
+              }
+            }
+            return true;
           })
         }
     default:
@@ -108,9 +159,10 @@ const reducer = (state, action) => {
 
 const StoreProvider = ({value=[], ...props})=>{
     const [state, dispatch] = useReducer(reducer, {
+        totalEmployees:[],
         employees:[],
         currentEmployee:{
-            _id:0,
+            id:0,
             title:"",
             firstName:"",
             lastName:"",
@@ -121,7 +173,9 @@ const StoreProvider = ({value=[], ...props})=>{
         loading:false,
         formSkills:[],
         showFilter:false,
-        filters:[]
+        filters:[],
+        search:"",
+        category:"title"
     });
     return <Provider value={[state, dispatch]} {...props} />;
 };

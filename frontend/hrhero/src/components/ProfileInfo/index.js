@@ -28,19 +28,18 @@ const ProfileInfo = (props)=>{
 
 
     const handleUpdates= e => {
-        console.log("UPDATES HERE:", e.target.name)
-        console.log("IS IT A CHECKBOX??", e.target.name == 'skills')
         if(e.target.name == 'skills'){
             if(e.target.checked){
-                console.log("CHECKED", state.currentEmployee)
-                dispatch({ type: UPDATING_EMPLOYEE, update:{skills: [e.target.id, state.currentEmployee.skills]}})
+                dispatch({ type: UPDATING_EMPLOYEE, update:{skills: [e.target.id, ...state.currentEmployee.skills]}})
             }else{
-                dispatch({ type: UPDATING_EMPLOYEE, update:{skills: [...state.currentEmployee.skills.filter(skill=>e.target.id!==skill)]}})
+                dispatch({ type: UPDATING_EMPLOYEE, update:{skills: [...state.currentEmployee.skills.filter(skill=>{
+                    return e.target.id!==skill})]}})
             }
             console.log("CURRENT EMPLOYEE", state.currentEmployee)
-        }
+        }else{
         let field = e.target.name;
         dispatch({ type: UPDATING_EMPLOYEE, update:{[field]:e.target.value}})
+        }
     }
     const updateEmployee= ()=>{
         API.updateEmployee(state.currentEmployee)
@@ -61,8 +60,6 @@ const ProfileInfo = (props)=>{
             })
             .catch(err=>console.log(err));
         };
-    
-
     return (
         <Container id="profile-container" fluid>
             <Row>

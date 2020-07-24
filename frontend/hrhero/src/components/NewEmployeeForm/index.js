@@ -27,18 +27,14 @@ const NewEmployeeForm= ()=>{
     const [state, dispatch] = useStoreContext();
     const history = useHistory();
     const handleSkillChange = e => {
-        console.log("CHECKBOX NAME:", e.target.name, e.target.checked)
-       
         if(e.target.checked){
             dispatch({type: ADD_SKILL, skill:e.target.name});
         }else{
             dispatch({type: REMOVE_SKILL, skill:e.target.name});
         }
-        console.log(state.formSkills)
     }
     const handleSubmit = e =>{
         e.preventDefault();
-        console.log("SKILLS FINAL DRAFT", state.formSkills)
         dispatch({type: LOADING});
         API.addEmployee({
             title: titleRef.current.value,
@@ -46,7 +42,7 @@ const NewEmployeeForm= ()=>{
             lastName: lastNameRef.current.value,
             email: emailRef.current.value,
             portrait: portraitRef.current.value,
-            skills: JSON.stringify(state.formSkills)
+            skills: state.formSkills
         })
         .then(result=>{
             dispatch({

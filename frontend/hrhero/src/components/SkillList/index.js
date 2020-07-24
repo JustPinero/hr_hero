@@ -16,11 +16,11 @@ const SkillList = (props)=>{
 
                     props.skills.map((skill, index)=>{
                     return(     
-                                <ListGroup.Item id="skill-block" key={index}>
-                                    <Star/> {skill}
-                                </ListGroup.Item>
+                        <ListGroup.Item id="skill-block" key={index}>
+                            <Star/> {skill}
+                        </ListGroup.Item>
                     )
-                }): <div></div>}
+                }): <div/>}
                 </ListGroup>
         </Card>
 

@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from "react-router-dom"
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
+import SearchBar from '../SearchBar'
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
@@ -26,7 +27,7 @@ const NavBar = ()=>{
                 <Link to={`/newemployee`}>Add Staff</Link>
                 </Nav>
             </Navbar.Collapse>
-          
+          <SearchBar/>
         </Navbar>
     )
 };

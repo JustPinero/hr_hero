@@ -1,7 +1,8 @@
 import React from 'react';
 import PowersList from "../NewEmployeeForm/PowersList";
 import { useStoreContext } from "../../utils/GlobalState";
-import {ADD_FILTER, REMOVE_FILTER} from "../../utils/actions";
+import {ADD_FILTER, REMOVE_FILTER, FILTER_EMPLOYEES} from "../../utils/actions";
+import API from "../../utils/API";
 
 
 
@@ -22,10 +23,11 @@ const EmployeeFilter = (props)=>{
         if(e.target.checked){
             dispatch({type: ADD_FILTER, filter:e.target.name});
         }else{
-            dispatch({type: REMOVE_FILTER, filter:e.target.name});
+            dispatch({type:REMOVE_FILTER, filter:e.target.name})
+            dispatch({type:FILTER_EMPLOYEES})
+            }
         }
-        console.log(state.filters)
-    }
+        console.log(state)
     return(
         <Accordion>
             <Card>
