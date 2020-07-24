@@ -4,7 +4,7 @@
   "description": "FS app for managing employees/heroes",
   "main": "index.js",
   "scripts": {
-    "heroku-postbuild": "cd frontend && cd hrhero && npm run build",
+    "heroku-postbuild": "cd frontend && cd hrhero && yarn run build",
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
