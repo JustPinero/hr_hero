@@ -4,8 +4,8 @@
   "description": "FS app for managing employees/heroes",
   "main": "index.js",
   "scripts": {
-    "heroku-postbuild": "cd frontend && cd hrhero && npm run build",
-    "start": "node server.js && npx sequelize-cli db:seed:all",
+    "heroku-postbuild": "npx sequelize-cli db:seed:all && cd frontend && cd hrhero && npm run build",
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -24,6 +24,7 @@
     "express": "^4.17.1",
     "mysql2": "^2.1.0",
     "nodemon": "^2.0.4",
-    "sequelize": "^6.3.3"
+    "sequelize": "^6.3.3",
+    "react-scripts": "3.4.1"
   }
 }
