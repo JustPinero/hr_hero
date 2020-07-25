@@ -90,7 +90,7 @@ const ProfileInfo = (props)=>{
                             Email
                             </Form.Label>
                             <Col sm="6">
-                                <Form.Control plaintext readOnly defaultValue="email@example.com" />
+                                <Form.Control plaintext readOnly defaultValue={props.email}/>
                             </Col>
                         </Form.Group>
                     
