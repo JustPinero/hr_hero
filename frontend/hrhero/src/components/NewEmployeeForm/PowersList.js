@@ -1,5 +1,5 @@
 const PowersList = [
-    "flies",
+    "flight",
     "lasers",
     "fast",
     "rich",

@@ -18,7 +18,7 @@ module.exports = {
       lastName: 'Kent',
       email: 'ckent@dailybugle.com',
       portrait: "https://action.scholastic.com/content/dam/classroom-magazines/action/issues/2019-20/040120/superman-becomes-a-star-superheroes-take-over-the-world/07-ACT-040120-p26-PT-Superman-TN.jpg",
-      skills:"fast,invulnerable,strong,flies,lasers",
+      skills:"fast,invulnerable,strong,flight,lasers",
       createdAt: new Date(),
       updatedAt: new Date()
     },{
@@ -27,7 +27,7 @@ module.exports = {
       lastName: 'Stark',
       email: 'tstark@starkindustries.com',
       portrait: "https://cdn.dribbble.com/users/123846/screenshots/6426558/ironman-full.jpg",
-      skills:"rich,smart,flies,lasers",
+      skills:"rich,smart,flight,lasers",
       createdAt: new Date(),
       updatedAt: new Date()
     },

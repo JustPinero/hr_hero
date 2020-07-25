@@ -17,7 +17,6 @@ const EmployeeFilter = (props)=>{
     const [state, dispatch] = useStoreContext();
 
     const handleSkillChange = e => {
-        console.log("CHECKBOX NAME:", e.target.name, e.target.checked)
        
         if(e.target.checked){
             dispatch({type: ADD_FILTER, filter:e.target.name});
