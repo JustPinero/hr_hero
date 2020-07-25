@@ -11,3 +11,7 @@
 #card-container:hover{
     box-shadow: 0px 0px 5px 10px white;
 }
+#filter-toggle{
+    border-radius: 10px;
+    font-weight: bold;
+}

@@ -31,13 +31,13 @@ const EmployeeFilter = (props)=>{
         <Accordion>
             <Card>
                 <Card.Header>
-                <Accordion.Toggle as={Button} variant="link" eventKey="0">
-                    <Filter/> FILTER
+                <Accordion.Toggle as={Button} variant="link" eventKey="0" id="filter-toggle">
+                    <Filter size={30}/> FILTER
                 </Accordion.Toggle>
                 </Card.Header>
                 <Accordion.Collapse eventKey="0">
                 <Form id="form-container">
-                <Form.Row>
+                <Form.Row style={{paddingLeft:"10px"}}>
                 {PowersList.map((power) => (
                     <Col xs={4} key={power}>
                     <Form.Check 
@@ -48,7 +48,6 @@ const EmployeeFilter = (props)=>{
                         name={power}
                         color="blue"    
                     />
-                    
                     </Col>
                 ))}
                 </Form.Row>
