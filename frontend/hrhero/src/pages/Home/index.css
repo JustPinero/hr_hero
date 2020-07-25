@@ -1,7 +1,7 @@
 #homepage-container {
     background-image: url("../../assets/img/city_bg.jpg");
-    height: 100vh;
-    padding-top: 20rem;
+    height: 100%;
+    padding-top: 10rem;
     display: flex;
     justify-content: center;
     align-items:center;
