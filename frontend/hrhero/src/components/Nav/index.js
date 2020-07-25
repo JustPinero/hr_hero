@@ -18,16 +18,16 @@ import SearchBar from '../SearchBar'
 
 const NavBar = ()=>{
     return(
-        <Navbar fixed="top" id="nav-container" className="justify-content-center" bg="light" expand="lg">
+        <Navbar fixed="top" id="nav-container" className="justify-content-center" expand="lg">
             <Link to={"/"} ><Navbar.Brand>HR HERO</Navbar.Brand></Link>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav >
-                    <NavButton buttonText="ADD STAFF" buttonStyle="home-button" navPath='/newemployee'/>
-                </Nav>
-            </Navbar.Collapse>
-            <Filter/>
+                <Filter/>
+            </Nav>
             <SearchBar/>
+            </Navbar.Collapse>
+            <NavButton buttonText="ADD STAFF" buttonStyle="home-button" navPath='/newemployee'/>
         </Navbar>
     )
 };

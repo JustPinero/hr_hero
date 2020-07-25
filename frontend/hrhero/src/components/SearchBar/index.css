@@ -1,0 +1,10 @@
+#search-container{
+    background-color: #96b9c5;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    border-radius: 20px;
+    padding:10px;
+}
+#search-toggle{
+    background-color: #f7f7f7
+}

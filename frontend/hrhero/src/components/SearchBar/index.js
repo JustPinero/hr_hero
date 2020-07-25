@@ -1,4 +1,5 @@
-import React, { useRef }  from 'react'
+import React, { useRef }  from 'react';
+import "./index.css";
 import { useStoreContext } from "../../utils/GlobalState";
 //Bootstrap Components
 import Form from "react-bootstrap/Form";
@@ -21,6 +22,15 @@ const SearchBar = ()=>{
             category: categoryRef.current.value
         })
     }
+    const handleKeyDown=(e)=> {
+        if (e.keyCode === 13 ) {
+            e.preventDefault()
+            dispatch({
+                type:SEARCH_EMPLOYEES,
+                search:searchRef.current.value
+            })
+        }
+      }
     const handleSearch = e=>{
         e.preventDefault()
         dispatch({
@@ -29,21 +39,22 @@ const SearchBar = ()=>{
         })
     }
     return(
-        <Accordion>
-            <Accordion.Toggle as={Button} variant="link" eventKey="0">
-                <Form.Label className="my-1 mr-2" htmlFor="inlineFormCustomSelectPref">
-                    Search Category
+        <Accordion id="search-container">
+            <Accordion.Toggle as={Button} id="search-toggle" variant="link" eventKey="0">
+                <Form.Label className="my-1 mr-2">
+                    CATEGORY SEARCH
                 </Form.Label>
                 </Accordion.Toggle>
-                <Accordion.Collapse eventKey="0">
-                <Form inline>
+                <Accordion.Collapse eventKey="0" >
+                <Form inline >
                 <Form.Control
                 onChange={handleCategorySelect}
                 as="select"
                 ref={categoryRef}
+                color="blue"
                 value={state.category}
                 className="my-1 mr-sm-2"
-                id="inlineFormCustomSelectPref"
+                id="inlineFormCustomSelectPref search-text"
                 custom
                 >
                     <option value="title">TITLE</option>
@@ -51,8 +62,8 @@ const SearchBar = ()=>{
                     <option value="lastName">LAST NAME</option>
                     <option value="email">EMAIL</option>
                 </Form.Control>
-                <FormControl type="submit" onSubmit={e=>console.log(e)} ref={searchRef} type="text" placeholder="Search"  />
-                <Button onClick={handleSearch} variant="outline-primary">Search</Button>
+                <FormControl onKeyDown={handleKeyDown} type="submit" className="search-text" onSubmit={e=>console.log(e)} ref={searchRef} type="text" placeholder="Search"  />
+                <Button onClick={handleSearch} className="search-text" variant="outline-primary">Search</Button>
                 </Form>
                 </Accordion.Collapse>
         </Accordion>

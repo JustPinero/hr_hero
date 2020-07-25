@@ -15,8 +15,8 @@ const EmployeeTile = (props)=>{
             <Link id='card-link' to={`/employees/${props.id}`}>
                 <Card className="mb-3" id='card-container'>
                     <Card.Img style={{height:"15rem"}}variant="top" src={props.portrait} />
-                    <Card.Body>
-                        <Card.Title style={{textAlign:"center", fontSize:"3rem", color:"royalblue"}}>{props.title}</Card.Title>
+                    <Card.Body style={{backgroundColor:"#bd2130"}}>
+                        <Card.Title style={{textAlign:"center", fontSize:"2rem", color:"white"}}>{props.title}</Card.Title>
                     </Card.Body>
                 </Card>
             </Link>

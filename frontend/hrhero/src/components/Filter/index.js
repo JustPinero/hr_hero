@@ -45,7 +45,8 @@ const EmployeeFilter = (props)=>{
                         type={"checkbox"}
                         id={power}
                         label={power}
-                        name={power}    
+                        name={power}
+                        color="blue"    
                     />
                     
                     </Col>

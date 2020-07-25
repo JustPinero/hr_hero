@@ -8,13 +8,11 @@
 }
 #info-container {
     background-color:white;
-
 }
 
 #title-banner {
     background-color: #bd2130;
     border-radius: 15px 0px 50px 0px;
-
 }
 
 #title-banner__text {
@@ -23,7 +21,6 @@
     border-radius: 15px;
     color: white;
     font-family: fantasy;
-
 }
 #profile-button__box{
     padding-top: 1rem;
@@ -32,12 +29,4 @@
     height: 10rem;
     border-radius: 25px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 10px 20px 0 rgba(0, 0, 0, 0.19);
-
-}
-
-#update-button {
-
-}
-#terminate-button{
-
 }
