@@ -15,3 +15,7 @@
     border-radius: 10px;
     font-weight: bold;
 }
+filter-toggle__container{
+        background-color: #f7f7f7;
+        border-radius: 10px;
+}

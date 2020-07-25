@@ -7,16 +7,18 @@ import { useHistory } from "react-router-dom";
 //Bootstap Components
 import Button from "react-bootstrap/Button";
 
-const BackButton = (props)=>{
-    const {buttonStyle, buttonText, navPath} = props
+const NavButton = (props)=>{
+    console.log(props)
+    let {buttonStyle, buttonText, navPath} = props
     const history = useHistory();
     console.log(buttonStyle, navPath)
     const clickHandler = e =>{
         e.preventDefault()
         history.push(navPath)
     }
+    console.log("BUTTON STYL", buttonStyle)
     return (
-        <Button B id={buttonStyle} onClick={clickHandler}>{buttonText}</Button>
+        <Button id={buttonStyle} onClick={clickHandler}>{buttonText}</Button>
     )
 }
-export default BackButton;
+export default NavButton;

@@ -30,7 +30,7 @@ const EmployeeFilter = (props)=>{
     return(
         <Accordion>
             <Card>
-                <Card.Header>
+                <Card.Header id="filter-toggle__container">
                 <Accordion.Toggle as={Button} variant="link" eventKey="0" id="filter-toggle">
                     <Filter size={30}/> FILTER
                 </Accordion.Toggle>

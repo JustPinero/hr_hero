@@ -1,3 +1,9 @@
 #nav-container{
     background-color: #96b9c5;
 }
+#nav-logo{
+    color:yellow;
+    font-weight: 900;
+    font-family: Georgia;
+    text-shadow: 2px 2px #ff0000;
+}

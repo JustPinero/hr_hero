@@ -63,7 +63,7 @@ const SearchBar = ()=>{
                     <option value="email">EMAIL</option>
                 </Form.Control>
                 <FormControl onKeyDown={handleKeyDown} type="submit" className="search-text" onSubmit={e=>console.log(e)} ref={searchRef} type="text" placeholder="Search"  />
-                <Button onClick={handleSearch} className="search-text" variant="outline-primary">Search</Button>
+                <Button id="search-toggle" onClick={handleSearch} style={{marginLeft:"5px"}} variant="outline-primary">Search</Button>
                 </Form>
                 </Accordion.Collapse>
         </Accordion>
