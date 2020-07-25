@@ -1,6 +1,9 @@
+//REACT
 import React, {useState} from 'react';
-
+//CSS
 import "./index.css";
+//React Navigation Components
+import { useHistory } from "react-router-dom";
 //Bootstrap Components
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -9,7 +12,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Image from "react-bootstrap/Image";
-//Custom Components
+//CUSTOM COMPONENTS
 import SkillList from "../SkillList";
 import Portrait from '../Portrait';
 import NavButton from '../../components/utils/NavButton'
@@ -23,7 +26,7 @@ import PowersList from '../NewEmployeeForm/PowersList';
 const ProfileInfo = (props)=>{
     const [state, dispatch] = useStoreContext();
     const [show, setShow] = useState(false);
-
+    const history = useHistory();
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
@@ -58,6 +61,7 @@ const ProfileInfo = (props)=>{
                     type: REMOVE_EMPLOYEE,
                     id: props.id
                 });
+                history.push('/')
             })
             .catch(err=>console.log(err));
         };
@@ -165,7 +169,7 @@ const ProfileInfo = (props)=>{
               <Button variant="secondary" onClick={handleClose}>
                 Close
               </Button>
-              <Button onClick={updateEmployee} variant="primary">Understood</Button>
+              <Button onClick={updateEmployee} variant="primary">UPDATE</Button>
             </Modal.Footer>
           </Modal>
         </Container>

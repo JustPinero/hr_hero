@@ -7,7 +7,6 @@ import Row from 'react-bootstrap/Row'
 import Spinner from 'react-bootstrap/Spinner';
 import API from "../../utils/API";
 //Custom Components
-import NavButton from '../../components/utils/NavButton';
 import { useStoreContext } from "../../utils/GlobalState";
 import { SET_CURRENT_EMPLOYEE} from "../../utils/actions";
 

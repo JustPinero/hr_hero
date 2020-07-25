@@ -17,6 +17,7 @@ const Routes = ()=> {
       <Route exact path="/" component={Nav}/>
         <Switch>
           <Route exact path="/" component={HomePage} />
+          <Route exact path="/employees" component={HomePage} />
           <Route exact path="/employees/:id" component={ProfilePage}/>
           <Route exact path="/newemployee" component={NewHeroPage} />
           <Route exact path="/welcome" component={WelcomePage} />

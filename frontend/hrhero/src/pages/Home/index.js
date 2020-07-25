@@ -13,7 +13,9 @@ const Home = () => {
     
     return(
         <Container id="homepage-container" fluid>
-            <Deck/>
+            <div styles={{ overflowY: 'scroll', overflow:"hidden" }}>
+                <Deck/>
+            </div>
         </Container>
     )
 }

@@ -4,7 +4,9 @@
     padding-top: 20rem;
     display: flex;
     justify-content: center;
-    align-items:flex-start;
+    align-items:center;
     background-repeat: no-repeat;
-    background-size: cover;;
+    background-size: cover;
+    overflow: hidden;
+    overflow-y: scroll;
 }
