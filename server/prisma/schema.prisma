@@ -1,0 +1,138 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Hero {
+  id                   Int          @id
+  name                 String
+  slug                 String       @unique
+
+  // Powerstats (0-100 scale, 0 if unknown)
+  intelligence         Int          @default(0)
+  strength             Int          @default(0)
+  speed                Int          @default(0)
+  durability           Int          @default(0)
+  power                Int          @default(0)
+  combat               Int          @default(0)
+
+  // Biography
+  fullName             String       @default("")
+  alterEgos            String       @default("")
+  aliases              String[]     @default([])
+  placeOfBirth         String       @default("")
+  firstAppearance      String       @default("")
+  publisher            String       @default("")
+  alignment            String       @default("")
+
+  // Appearance
+  gender               String       @default("")
+  race                 String       @default("")
+  heightCm             Int?
+  weightKg             Int?
+  eyeColor             String       @default("")
+  hairColor            String       @default("")
+
+  // Work
+  occupation           String       @default("")
+  base                 String       @default("")
+
+  // Connections
+  groupAffiliation     String       @default("")
+  relatives            String       @default("")
+
+  // Image
+  imageUrl             String       @default("")
+
+  // HR Hero specific
+  availability         Availability @default(AVAILABLE)
+  currentTitle         String?
+  aiPersonalitySummary String?
+
+  createdAt            DateTime     @default(now())
+  updatedAt            DateTime     @updatedAt
+
+  matches              HeroPositionMatch[]
+
+  @@index([name])
+  @@index([publisher])
+  @@index([alignment])
+  @@index([availability])
+}
+
+model Position {
+  id             Int            @id @default(autoincrement())
+  title          String
+  department     Department
+  description    String
+  requirements   String[]       @default([])
+  salaryMin      Int
+  salaryMax      Int
+  location       String         @default("Megacorp Tower, Patriot City")
+  clearanceLevel ClearanceLevel @default(STANDARD)
+  status         PositionStatus @default(OPEN)
+
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+
+  matches        HeroPositionMatch[]
+
+  @@index([department])
+  @@index([status])
+}
+
+model HeroPositionMatch {
+  id         Int      @id @default(autoincrement())
+  heroId     Int
+  positionId Int
+  score      Int
+  reasoning  String
+  createdAt  DateTime @default(now())
+
+  hero       Hero     @relation(fields: [heroId], references: [id], onDelete: Cascade)
+  position   Position @relation(fields: [positionId], references: [id], onDelete: Cascade)
+
+  @@unique([heroId, positionId])
+  @@index([heroId])
+  @@index([positionId])
+  @@index([score])
+}
+
+enum Availability {
+  AVAILABLE
+  EMPLOYED
+  FREELANCE
+  RETIRED
+}
+
+enum Department {
+  HR
+  MARKETING
+  SALES
+  RESEARCH
+  C_SUITE
+  SECURITY
+  IT
+  MIDDLE_MANAGEMENT
+  FINANCE
+  FACILITIES
+  LEGAL
+}
+
+enum ClearanceLevel {
+  STANDARD
+  ENHANCED
+  SECRET
+  TOP_SECRET
+  COSMIC
+}
+
+enum PositionStatus {
+  OPEN
+  FILLED
+  ON_HOLD
+}

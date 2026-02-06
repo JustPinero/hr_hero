@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@theme {
+  /* Mega Blue */
+  --color-mega-blue-50: #e8f0fc;
+  --color-mega-blue-100: #c5d9f7;
+  --color-mega-blue-200: #9ebef1;
+  --color-mega-blue-300: #6e9de8;
+  --color-mega-blue-400: #4681de;
+  --color-mega-blue-500: #1b4f9e;
+  --color-mega-blue-600: #174590;
+  --color-mega-blue-700: #123a7a;
+  --color-mega-blue-800: #0e2f64;
+  --color-mega-blue-900: #091e42;
+
+  /* Hero Gold */
+  --color-hero-gold-50: #fef9e7;
+  --color-hero-gold-100: #fcefc3;
+  --color-hero-gold-200: #fae19b;
+  --color-hero-gold-300: #f7d06d;
+  --color-hero-gold-400: #f5c23f;
+  --color-hero-gold-500: #f5b800;
+  --color-hero-gold-600: #d49f00;
+  --color-hero-gold-700: #b38600;
+  --color-hero-gold-800: #926d00;
+  --color-hero-gold-900: #715400;
+
+  /* Villain Red */
+  --color-villain-red-50: #fef2f2;
+  --color-villain-red-100: #fee2e2;
+  --color-villain-red-200: #fecaca;
+  --color-villain-red-300: #fca5a5;
+  --color-villain-red-400: #f87171;
+  --color-villain-red-500: #ef4444;
+  --color-villain-red-600: #dc2626;
+  --color-villain-red-700: #b91c1c;
+  --color-villain-red-800: #991b1b;
+  --color-villain-red-900: #7f1d1d;
+
+  /* Corp Gray */
+  --color-corp-gray-50: #f9fafb;
+  --color-corp-gray-100: #f3f4f6;
+  --color-corp-gray-200: #e5e7eb;
+  --color-corp-gray-300: #d1d5db;
+  --color-corp-gray-400: #9ca3af;
+  --color-corp-gray-500: #6b7280;
+  --color-corp-gray-600: #4b5563;
+  --color-corp-gray-700: #374151;
+  --color-corp-gray-800: #1f2937;
+  --color-corp-gray-900: #111827;
+
+  /* Hero Green (available/success) */
+  --color-hero-green-400: #4ade80;
+  --color-hero-green-500: #22c55e;
+  --color-hero-green-600: #16a34a;
+
+  /* Department colors */
+  --color-dept-hr: #8b5cf6;
+  --color-dept-marketing: #f97316;
+  --color-dept-sales: #ef4444;
+  --color-dept-research: #06b6d4;
+  --color-dept-c-suite: #f5b800;
+  --color-dept-security: #64748b;
+  --color-dept-it: #22c55e;
+  --color-dept-middle-management: #a3a3a3;
+  --color-dept-finance: #14b8a6;
+  --color-dept-facilities: #78716c;
+  --color-dept-legal: #6366f1;
+
+  /* Font families */
+  --font-display: "Bangers", cursive;
+  --font-heading: "Oswald", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  /* Box shadows */
+  --shadow-hero: 0 4px 14px 0 rgba(27, 79, 158, 0.25);
+  --shadow-hero-lg: 0 8px 25px 0 rgba(27, 79, 158, 0.35);
+  --shadow-gold: 0 4px 14px 0 rgba(245, 184, 0, 0.3);
+  --shadow-card: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
+
+  /* Animations */
+  --animate-float: float 3s ease-in-out infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-corp-gray-900);
+  background-color: var(--color-corp-gray-50);
+  margin: 0;
+}

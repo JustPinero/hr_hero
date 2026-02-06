@@ -1,54 +1,95 @@
-#HR HERO
+# HR Hero
 
-HR Hero is a personel management application made for super heroes, because everybody's gotta work right?
+HR Hero is a comedic fake HR platform for **MEGACORP INDUSTRIES**, a soulless corporate megacorp that employs superheroes. The app pulls ~730 heroes from the SuperHero API, stores them in PostgreSQL, and uses Claude AI (Haiku) to match heroes to corporate job positions with hilariously corporate reasoning blurbs.
 
-##__Backend Dependencies
-1. Node
-2. Mysql
-3. sequelize
-4. express.js
-5. dotenv
+## Tech Stack
 
-nodemon and Postman were used for development.
+### Client
+- React 18 + TypeScript (strict mode)
+- Vite (dev server on port 5173)
+- Tailwind CSS (custom heroic corporate theme)
+- React Router v6
+- TanStack Query
+- Axios
 
-##__Frontend Dependencies
-1. React
-2. axios
-3. bootstrap
-4. react
-5. react-bootstrap
-6. react-bootstrap-icons 
-7. react-dom
-8. react-router-dom
-9. react-scripts
-10. react-scroll
+### Server
+- Node.js + TypeScript (strict mode)
+- Express.js (REST API on port 3001)
+- Prisma ORM (PostgreSQL)
+- Anthropic SDK (Claude Haiku)
+- Zod (runtime validation)
 
-###To Begin the application:
-1. Make sure Mysql is installed https://www.npmjs.com/package/mysql2
+### External APIs
+- SuperHero API — hero data source (~731 heroes)
+- Anthropic Claude API — AI matching and personality summaries
 
-2. Create a .env file in the root directory and inside place the following environmental variable with your information: 
-`DATABASE_URL=mysql://username@localhost:5432/database_name`
+## Setup
 
-3. From the root directory enter: `npm i`
+### Prerequisites
+- Node.js 18+
+- PostgreSQL
+- SuperHero API token (from superheroapi.com)
+- Anthropic API key
 
-4. Activate the application by typing
-`npm start`
-5.  This will take a while but will seed the database, install any dependencies, then spin up the app. 
-###How to use the application:
+### Installation
 
-1.  Once populated the primary display can be filtered with use of the check boxes in the filter or you can search for individual heroes using the search bar.
+1. Clone the repo and create your `.env` from the example:
+   ```bash
+   cp .env.example server/.env
+   ```
 
-2. Each tile will take you to an individual employees's profile page where you can update their information or remove them.
+2. Install dependencies:
+   ```bash
+   cd server && npm install
+   cd ../client && npm install
+   ```
 
-###Features Under Construction
-- tighten the interface eg. more user friendly redirects after finishing various 
-- various styling eg. nav bar headers, buttons, and page backgrounds.
-- locked scrolling using react-scroll and scroll-magic
-- icon animation using Pose
+3. Set up the database:
+   ```bash
+   cd server
+   npx prisma migrate dev
+   npm run db:seed
+   ```
 
-###Plans for the future
-- draws multiple heroes from another api.
-- tighten the interface eg. more user friendly redirects after finishing various 
-- add music and videos to each employees profile.
-- clean up the reducer and the styles a bit for dryer code.
+4. Start development:
+   ```bash
+   # Terminal 1: Server (port 3001)
+   cd server && npm run dev
 
+   # Terminal 2: Client (port 5173)
+   cd client && npm run dev
+   ```
+
+5. Visit `http://localhost:5173`
+
+## Project Structure
+
+```
+hr_hero/
+├── server/           # Express + Prisma backend
+│   ├── prisma/       # Schema, migrations, seed
+│   └── src/
+│       ├── config/   # Environment config
+│       ├── lib/      # Singletons (Prisma, Anthropic, SuperHero API)
+│       ├── routes/   # Express route definitions
+│       ├── controllers/  # Request handlers
+│       ├── services/     # Business logic
+│       ├── middleware/   # Error handling
+│       └── types/        # Shared TypeScript types
+└── client/           # React + Vite frontend
+    └── src/
+        ├── components/   # UI components by domain
+        ├── pages/        # Route-level pages
+        ├── hooks/        # TanStack Query hooks
+        ├── lib/          # API client, constants
+        └── types/        # Client-side types
+```
+
+## Key Features
+
+- Browse ~730+ superheroes with infinite scroll
+- View detailed hero profiles with powerstats
+- Browse 28 corporate job positions
+- AI-powered hero-to-position matching with comedic corporate reasoning
+- AI-generated personality assessments
+- All results cached in PostgreSQL after first generation
