@@ -55,12 +55,13 @@ function parseWeight(weight: string[]): number | null {
   return match ? parseInt(match[1], 10) : null;
 }
 
-function generateSlug(name: string): string {
-  return name
+function generateSlug(name: string, id: string): string {
+  const base = name
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/-+/g, '-')
     .replace(/^-|-$/g, '');
+  return `${base}-${id}`;
 }
 
 function cleanString(value: string | null | undefined): string {
@@ -72,7 +73,7 @@ export function parseHero(raw: RawHero) {
   return {
     id: parseInt(raw.id, 10),
     name: raw.name || 'Unknown',
-    slug: generateSlug(raw.name || `hero-${raw.id}`),
+    slug: generateSlug(raw.name || `hero-${raw.id}`, raw.id),
     intelligence: parseStat(raw.powerstats?.intelligence),
     strength: parseStat(raw.powerstats?.strength),
     speed: parseStat(raw.powerstats?.speed),
