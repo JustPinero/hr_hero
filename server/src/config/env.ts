@@ -9,7 +9,7 @@ const envSchema = z.object({
   ANTHROPIC_API_KEY: z.string().min(1),
   PORT: z.coerce.number().default(3001),
   NODE_ENV: z.enum(['development', 'production', 'test']).default('development'),
-  CLIENT_URL: z.string().default('http://localhost:5173'),
+  CLIENT_URL: z.string().default('*'),
 });
 
 export const env = envSchema.parse(process.env);
